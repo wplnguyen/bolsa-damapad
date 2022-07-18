@@ -25,27 +25,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 enum layer_names {
-    _FKEY,
-    _NUMS,
-    _MEDIA,
-    _MISC,
-
-};
-
-bool is_alt_tab_active = false; // ADD this near the begining of keymap.c
-bool is_alt_shift_tab_active = false; // ADD this near the begining of keymap.c
-uint16_t alt_tab_timer = 0;     // we will be using them soon.
-
-//ALT TAB Encoder Timer
-void matrix_scan_user(void) { // The very important timer.
-  if (is_alt_tab_active) {
-    if (timer_elapsed(alt_tab_timer) > 1000) {
-      unregister_code(KC_LALT);
-      unregister_code(KC_LSHIFT);
-      is_alt_tab_active = false;
-      is_alt_shift_tab_active = false;
-    }
-  }
+    _LAYER1,
+    _LAYER2,
+    _LAYER3,
+    _LAYER4
 };
 
 bool oled_tracker = false;
@@ -154,17 +137,17 @@ bool oled_task_kb(void) {
     }
 	render_anim();  // renders pixelart
     oled_set_cursor(0, 0);                            
-	switch (get_highest_layer(layer_state|default_layer_state)) {
-        case _FKEY:
+	switch (get_highest_layer(layer_state|default_layer_state)) { //labels for layers
+        case _LAYER1:
             oled_write_P(PSTR("1"), false);
             break;
-        case _NUMS:
+        case _LAYER2:
             oled_write_P(PSTR("2"), false);
             break;
-        case _MEDIA:
+        case _LAYER3:
             oled_write_P(PSTR("3"), false);
             break;
-        case _MISC:
+        case _LAYER4:
             oled_write_P(PSTR("4"), false);
             break;
 	}
@@ -175,57 +158,3 @@ oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
 	}
 #endif
 
-
-#ifdef ENCODER_ENABLE
-bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!encoder_update_user(index, clockwise)) { return false; }
-    if (index == 0) {
-        switch (get_highest_layer(layer_state|default_layer_state)) {
-        case _FKEY:
-            if (clockwise) {
-            tap_code_delay(KC_VOLU, 10);
-			} else {
-            tap_code_delay(KC_VOLD, 10);
-			}
-			oled_tracker ^=1;
-			break;
-        case _NUMS:
-            if (clockwise) {
-            tap_code_delay(KC_PGDN, 10);
-			} else {
-            tap_code_delay(KC_PGUP, 10);
-			}
-			oled_tracker ^=1;
-			break;
-        case _MEDIA:
-            if (clockwise) {
-            tap_code_delay(KC_VOLU, 10);
-			} else {
-            tap_code_delay(KC_VOLD, 10);
-			}
-			oled_tracker ^=1;
-			break;			
-        case _MISC:
-            if (clockwise) {
-                if (!is_alt_tab_active) {
-                    is_alt_tab_active = true;
-                unregister_code(KC_LSHIFT);
-                register_code(KC_LALT);
-                }
-                alt_tab_timer = timer_read();
-                tap_code(KC_TAB);
-            } else {
-                if (!is_alt_shift_tab_active) {
-                    is_alt_shift_tab_active = true;
-                register_code(KC_LALT);
-                register_code(KC_LSHIFT);
-                }
-                alt_tab_timer = timer_read();
-                tap_code(KC_TAB);
-			break;
-			}
-	}
-    }
-    return true;
-}
-#endif
