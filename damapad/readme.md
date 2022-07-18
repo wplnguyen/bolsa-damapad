@@ -3,11 +3,16 @@
 A Macropad by Bolsa Supply
 
 -   Keyboard Maintainer: [matthewdias](https://github.com/matthewdias)
+-   Bongocat Additions, Vial Support: [@wplnguyen](https://github.com/wplnguyen) and [@schmintendo](https://github.com/schmintendo)
 -   Hardware Supported: Damapad PCB
 
 Make example for this keyboard (after setting up your build environment):
 
     make bolsa/damapad:default
+    
+ Or do this for Vial support (this repo):
+    
+    make bolsa/damapad:vial
 
 Flashing example for this keyboard:
 

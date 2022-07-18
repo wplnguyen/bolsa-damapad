@@ -1,3 +1,4 @@
+
 {
   "name": "Damapad",
   "vendorId": "0x6D64",
@@ -11,13 +12,13 @@
     "labels": [["Bottom Left","WKL","Space"]],
     "keymap": [
       [
-        {
-          "x": 5.25
-        },
-        "0,5",
+		{
+			"x": 5.25
+		},
+		"0,5",
 		"0,0\n\n\n\n\n\n\n\n\ne",
-        "0,1\n\n\n\n\n\n\n\n\ne"
-      ],
+		"0,1\n\n\n\n\n\n\n\n\ne"
+	  ],
       [
         {
           "y": -0.75
