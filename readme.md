@@ -1,6 +1,6 @@
 # Damapad - Bongocat Edition
 
-Edited by wplnguyen and schmintendo
+Edited by [@wplnguyen](https://github.com/wplnguyen) and [@schmintendo](https://github.com/schmintendo)
 
 Everything works (OLED, rotary encoder, etc.) in Vial!
 
