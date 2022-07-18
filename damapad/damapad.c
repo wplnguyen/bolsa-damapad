@@ -156,16 +156,16 @@ bool oled_task_kb(void) {
     oled_set_cursor(0, 0);                            
 	switch (get_highest_layer(layer_state|default_layer_state)) {
         case _FKEY:
-            oled_write_P(PSTR("F-KEY"), false);
+            oled_write_P(PSTR("1"), false);
             break;
         case _NUMS:
-            oled_write_P(PSTR("#NUMS"), false);
+            oled_write_P(PSTR("2"), false);
             break;
         case _MEDIA:
-            oled_write_P(PSTR("MEDIA"), false);
+            oled_write_P(PSTR("3"), false);
             break;
         case _MISC:
-            oled_write_P(PSTR("MISC."), false);
+            oled_write_P(PSTR("4"), false);
             break;
 	}
 	return false;
