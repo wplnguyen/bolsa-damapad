@@ -32,7 +32,7 @@ enum layer_names {
 
 };
 
-bool is_alt_tab_active = false; // ADD this near the begining of keymap.c
+/* bool is_alt_tab_active = false; // ADD this near the begining of keymap.c
 bool is_alt_shift_tab_active = false; // ADD this near the begining of keymap.c
 uint16_t alt_tab_timer = 0;     // we will be using them soon.
 
@@ -46,7 +46,7 @@ void matrix_scan_user(void) { // The very important timer.
       is_alt_shift_tab_active = false;
     }
   }
-};
+}; */
 
 bool oled_tracker = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -192,7 +192,7 @@ oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
 #endif
 
 
-#ifdef ENCODER_ENABLE
+/* #ifdef ENCODER_ENABLE
 bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) { return false; }
     if (index == 0) {
@@ -244,4 +244,4 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
     }
     return true;
 }
-#endif
+#endif */

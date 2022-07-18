@@ -20,16 +20,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [0] = LAYOUT_wkl(
-        KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_MSEL, KC_MUTE,
+        KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_MSEL, TO(1),
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_PGUP,  
         KC_NO,   KC_COPY,          KC_PASTE,         KC_PGDN
+    ),
+	[1] = LAYOUT_wkl(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(2),
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  
+        KC_NO,   KC_TRNS,          KC_TRNS,          KC_TRNS
+    ),
+	[2] = LAYOUT_wkl(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(3),
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  
+        KC_NO,   KC_TRNS,          KC_TRNS,          KC_TRNS
+    ),
+	[3] = LAYOUT_wkl(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(0),
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  
+        KC_NO,   KC_TRNS,          KC_TRNS,          KC_TRNS
     )
-
 };
 
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [0] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)}
+    [0] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+	[1] = {ENCODER_CCW_CW(KC_TRNS, KC_TRNS)},
+	[2] = {ENCODER_CCW_CW(KC_TRNS, KC_TRNS)},
+	[3] = {ENCODER_CCW_CW(KC_TRNS, KC_TRNS)}
 };
 #endif
